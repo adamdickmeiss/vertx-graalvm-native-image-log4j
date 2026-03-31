@@ -10,15 +10,15 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>21</maven.compiler.release>
+    <maven.compiler.release>25</maven.compiler.release>
     <main.class>com.example.Main</main.class>
     <vertx.launcher>com.example.Main</vertx.launcher>
 
     <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
     <slf4j-api.version>1.7.21</slf4j-api.version>
-    <log4j2.version>2.25.0-SNAPSHOT</log4j2.version>
-    <graalvm-maven-plugin.version>0.10.6</graalvm-maven-plugin.version>
+    <log4j2.version>2.25.4</log4j2.version>
+    <graalvm-maven-plugin.version>1.0.0</graalvm-maven-plugin.version>
 
     <vertx.version>4.5.24</vertx.version>
 
