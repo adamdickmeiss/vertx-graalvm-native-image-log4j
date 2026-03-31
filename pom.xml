@@ -20,7 +20,7 @@
     <log4j2.version>2.25.4</log4j2.version>
     <graalvm-maven-plugin.version>1.0.0</graalvm-maven-plugin.version>
 
-    <vertx.version>4.5.24</vertx.version>
+    <vertx.version>5.0.10</vertx.version>
 
     <micrometer.version>1.11.0</micrometer.version>
 
