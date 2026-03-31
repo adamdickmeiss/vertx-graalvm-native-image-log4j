@@ -2,6 +2,7 @@ package com.example.log4j_graalvm;
 
 import com.example.MainVerticle;
 import io.vertx.core.Vertx;
+import io.vertx.core.http.HttpMethod;
 import io.vertx.junit5.VertxExtension;
 import io.vertx.junit5.VertxTestContext;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,7 +18,17 @@ public class TestMainVerticle {
   }
 
   @Test
-  void verticle_deployed(Vertx vertx, VertxTestContext testContext) throws Throwable {
-    testContext.completeNow();
+  void test_http_response(Vertx vertx, VertxTestContext testContext) {
+    vertx.createHttpClient()
+        .request(HttpMethod.GET, 8888, "localhost", "/")
+        .compose(req -> req.send())
+        .onComplete(testContext.succeeding(response -> {
+        assert response.statusCode() == 200;
+        assert "text/plain".equals(response.getHeader("content-type"));
+        response.body().onComplete(testContext.succeeding(content -> {
+          assert "Hello from Vert.x!".equals(content.toString());
+          testContext.completeNow();
+        }));
+      }));
   }
 }
